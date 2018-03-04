@@ -4,4 +4,4 @@ from django.http import HttpResponse
 # views
 
 def index(request):
-    return HttpResponse("What a placeholder")
+    return render(request, 'home.html', content_type='text/html')
