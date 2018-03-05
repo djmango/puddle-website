@@ -1,5 +1,5 @@
 """
-Django settings for dripcoinWebsite project.
+Django settings for puddleWebsite project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/2.0/topics/settings/
@@ -8,8 +8,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os
 import json
+import os
+
 keys = json.loads(open('keys.json').read())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -51,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'dripcoinWebsite.urls'
+ROOT_URLCONF = 'puddleWebsite.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dripcoinWebsite.wsgi.application'
+WSGI_APPLICATION = 'puddleWebsite.wsgi.application'
 
 
 # Database
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'dripcoinWebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test1',
+        'USER': 'test1',
+        'PASSWORD': keys['sqlTest1Pass'],
+        'HOST': keys['sqlTestHost'],
+        'PORT': '3306',
     }
 }
 
