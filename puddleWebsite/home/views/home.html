@@ -9,11 +9,39 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link rel="stylesheet" href="static/assets/css/wave.css">
 <link rel="icon" href="static/assets/img/puddle.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 body, html {
     height: 100%;
     line-height: 1.8;
+
 }
 /* Full height image header */
 .bgimg-1 {
@@ -25,6 +53,8 @@ body, html {
 .w3-bar .w3-button {
     padding: 16px;
 }
+
+
 </style>
 <body>
 <!-- Navbar (sit on top) -->
@@ -68,8 +98,8 @@ body, html {
     <div class="wave -five"></div>
     <div class="wave -six"></div>
   <div class="w3-display-left w3-text-white" style="padding:48px">
-    <span class="w3-jumbo w3-hide-small">Tangle for the people</span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Earn money with ease</span><br>
+    <span class="w3-jumbo w3-hide-small">Tangle for the People</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Tangle for the People</span><br>
     <span class="w3-large">Stop wasting valuable time with projects that just isn't you.</span>
     <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
   <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
