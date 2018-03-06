@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link rel="stylesheet" href="static/assets/css/wave.css">
+<link rel="stylesheet" href="static/assets/css/login.css">
 <link rel="icon" href="static/assets/img/puddle.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -61,7 +62,7 @@ body, html {
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
     <a href="#home" class="w3-bar-item w3-button w3-wide">
-    <img src="static/assets/img/Puddle(NBG).png" width="101" alt="Logo"></a>
+    <img src="static/assets/img/Puddle(NBG).png" width="79" alt="Logo"></a>
 
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
@@ -70,6 +71,7 @@ body, html {
       <a href="#roadmap" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i> ROADMAP</a>
       <a href="#whitepaper" class="w3-bar-item w3-button"><i class="fa fa-file-text"></i> WHITEPAPER</a>
       <a href="#buy" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> BUY</a>
+      <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"><i class="fas fa-user-circle"></i> LOGIN</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -87,6 +89,7 @@ body, html {
   <a href="#roadmap" onclick="w3_close()" class="w3-bar-item w3-button">ROADMAP</a>
   <a href="#whitepaper" onclick="w3_close()" class="w3-bar-item w3-button">WHITEPAPER</a>
   <a href="#buy"  onclick="w3_close()" class="w3-bar-item w3-button">BUY</a>
+  <a onclick="w3_close document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button">LOGIN</a>
 </nav>
 
 <!-- Header with full-height image -->
@@ -97,14 +100,15 @@ body, html {
     <div class="wave -four"></div>
     <div class="wave -five"></div>
     <div class="wave -six"></div>
+    <div class="wave -seven"></div>
   <div class="w3-display-left w3-text-white" style="padding:48px">
     <span class="w3-jumbo w3-hide-small">Tangle for the People</span><br>
     <span class="w3-xxlarge w3-hide-large w3-hide-medium">Tangle for the People</span><br>
     <span class="w3-large">Stop wasting valuable time with projects that just isn't you.</span>
     <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
   <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
-    <a href="twitter.com"><i class="fab fa-twitter w3-hover-opacity w3-text-white"></i></a>
-    <a href="reddit.com"><i class="fab fa-reddit w3-hover-opacity w3-text-white"></i></a>
+    <a href="http://twitter.com"><i class="fab fa-twitter w3-hover-opacity w3-text-white"></i></a>
+    <a href="http://reddit.com"><i class="fab fa-reddit w3-hover-opacity w3-text-white"></i></a>
     <a href="https://github.com/"><i class="fab fa-github w3-hover-opacity w3-text-white"></i></a>
   </div>
 </header>
@@ -280,32 +284,8 @@ body, html {
   </div>
 </div>
 
-<!-- whitepaper Section -->
-<div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="whitepaper">
-  <h3>WHITEPAPER</h3>
-  <p class="w3-large">View Our whitepaper.</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-third">
-      <ul class="w3-ul w3-white w3-hover-shadow w3-center">
-        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
-        <li class="w3-padding-16"><b>25GB</b> Storage</li>
-        <li class="w3-padding-16"><b>25</b> Emails</li>
-        <li class="w3-padding-16"><b>25</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 25</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 <!-- Roadmap Section -->
-<div class="w3-container" style="padding:128px 16px" id="roadmap">
+<div class="w3-container w3-white-grey" style="padding:128px 16px" id="roadmap">
   <h3 class="w3-center">ROADMAP</h3>
   <p class="w3-center w3-large">What we've done for people</p>
 
@@ -340,41 +320,93 @@ body, html {
   </div>
 </div>
 
+<!-- whitepaper Section -->
+<div class="w3-container w3-center w3-light-grey" style="padding:128px 16px" id="whitepaper">
+  <h3>WHITEPAPER</h3>
+  <p class="w3-large">View Our whitepaper.</p>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow w3-center">
+        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
+        <li class="w3-padding-16"><b>25GB</b> Storage</li>
+        <li class="w3-padding-16"><b>25</b> Emails</li>
+        <li class="w3-padding-16"><b>25</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 25</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 
 <!-- Buy Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="buy">
+<div class="w3-container w3-dark-grey" style="padding:128px 16px" id="buy">
   <h3 class="w3-center">BUY</h3>
   <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
   <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-half">
-      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
-      <br>
-      <form action="/action_page.php" target="_blank">
-        <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-        <p>
-          <button class="w3-button w3-black" type="submit">
-            <i class="fa fa-paper-plane"></i> SEND MESSAGE
-          </button>
-        </p>
-      </form>
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow w3-center">
+        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
+        <li class="w3-padding-16"><b>25GB</b> Storage</li>
+        <li class="w3-padding-16"><b>25</b> Emails</li>
+        <li class="w3-padding-16"><b>25</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 25</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
 
 <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
-    <a href="twitter.com"><i class="fab fa-twitter w3-hover-opacity"></i></a>
-    <a href="reddit.com"><i class="fab fa-reddit w3-hover-opacity"></i></a>
-    <a href="https://github.com/"><i class="fab fa-github w3-hover-opacity"></i></a>
+<footer class="w3-center w3-white w3-padding-64">
+  <a href="#home" class="w3-button w3-dark-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section w3-text-dark-grey">
+    <a href="http://twitter.com"><i class="fab fa-twitter w3-hover-opacity"></i></a>
+    <a href="http://reddit.com"><i class="fab fa-reddit w3-hover-opacity"></i></a>
+    <a href="http://github.com"><i class="fab fa-github w3-hover-opacity"></i></a>
   </div>
 </footer>
+
+<!-- login pop up html -->
+<div id="id01" class="modal">
+
+  <form class="modal-content w3-animate-zoom" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="static/assets/img/avatar.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label class="w3-large" for="uname">Username</label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label class="w3-large" for="psw">Password</label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit" class="w3-dark-grey">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn w3-dark-grey">Cancel</button>
+      <span class="psw">Forgot <a href="https://cdn.drawception.com/images/panels/2017/5-8/NHbhaxxmW2-2.png">password?</a></span>
+    </div>
+  </form>
+</div>
 
 <script>
 
@@ -401,6 +433,16 @@ function w3_open() {
 // Close the sidebar with the close button
 function w3_close() {
     mySidebar.style.display = "none";
+}
+
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 </script>
 

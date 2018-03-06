@@ -43,10 +43,13 @@
 .wave.-five {
   animation: drift 25000ms infinite linear;
   opacity: .1;
-  background-color: yellow;
+  background-color: aqua;
 }
 .wave.-six {
   animation: drift 27000ms infinite linear;
+}
+.wave.-seven {
+  animation: drift 29000ms infinite linear;
 }
 
 .box:after {
@@ -78,6 +81,7 @@
   text-shadow: 0 1px 0 rgba(black, .1);
   text-indent: .3em;
 }
+
 @keyframes drift {
   from { transform: rotate(0deg); }
   from { transform: rotate(360deg); }
