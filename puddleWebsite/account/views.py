@@ -10,10 +10,12 @@ SQL_HOST = json.loads(open('keys.json').read())['sqlTestHost']
 SQL_PASSWD = json.loads(open('keys.json').read())['sqlTest1Pass']
 
 # mysql setup
-mysql = MySQLdb.connect(host=SQL_HOST, user='test1', passwd=SQL_PASSWD, port=3306, db='test1', charset='utf8')
+mysql = MySQLdb.connect(host=SQL_HOST, user='test1',
+                        passwd=SQL_PASSWD, port=3306, db='test1', charset='utf8')
 mysqlcon = mysql.cursor()
 
 # functions
+
 
 def hash(passwd):
     hashed = PasswordHasher().hash(passwd)
@@ -21,6 +23,7 @@ def hash(passwd):
     return hashed
 
 # views
+
 
 def index(request):
     return HttpResponse(hash("testpass%"))
