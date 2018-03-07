@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="static/assets/css/login.css">
 <link rel="icon" href="static/assets/img/puddle.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script>
 $(document).ready(function(){
   // Add smooth scrolling to all links
@@ -115,9 +116,9 @@ body, html {
 
 <!-- About Section -->
 <div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">ABOUT THE COMPANY</h3>
-  <p class="w3-center w3-large">Key features of our company</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
+  <h3 class="w3-center sr-animate">ABOUT THE COMPANY</h3>
+  <p class="w3-center w3-large sr-animate">Key features of our company</p>
+  <div class="w3-row-padding w3-center sr-animate" style="margin-top:64px">
     <div class="w3-quarter">
       <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
       <p class="w3-large">Responsive</p>
@@ -164,13 +165,13 @@ body, html {
 <!-- Promo Section - "We know design" -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px">
   <div class="w3-row-padding">
-    <div class="w3-col m6">
+    <div class="w3-col m6 sr-animate">
       <h3>We know design.</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
       <p><a href="#roadmap" class="w3-button w3-black"><i class="fa fa-tasks"> </i> View Our Roadmap</a></p>
     </div>
     <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="/w3images/phone_buildings.jpg" alt="Buildings" width="700" height="394">
+      <img class="w3-image w3-round-large sr-animate" src="static/assets/img/money.png" alt="Buildings" width="700" height="394">
     </div>
   </div>
 </div>
@@ -444,6 +445,9 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+window.sr = ScrollReveal();
+sr.reveal('.sr-animate');
 </script>
 
 </body>
