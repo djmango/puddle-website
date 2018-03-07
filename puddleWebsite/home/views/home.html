@@ -387,35 +387,13 @@ body, html {
 <div id="id01" class="modal">
 
   <form class="modal-content w3-animate-zoom" action="/action_page.php">
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <a href="#" onclick="signOut();">Sign out</a>
-    <script>
-      function onSignIn(googleUser) {
-          var csrftoken = Cookies.get('csrftoken');
-          var id_token = googleUser.getAuthResponse().id_token;
-          var xhr = new XMLHttpRequest();
-          xhr.open('POST', 'http://localhost:8000/account/goauth2token');
-          xhr.setRequestHeader("X-CSRFToken", csrftoken);
-          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-          xhr.onload = function () {
-            console.log('Signed in as: ' + xhr.responseText);
-          };
-          xhr.send('idtoken=' + id_token);
-        }
-      function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-          console.log('User signed out.');
-        });
-      }
-    </script>
 
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="static/assets/img/avatar.png" alt="Avatar" class="avatar">
     </div>
 
-    <div class="container">
+    <div class="w3-container">
       <label class="w3-large" for="uname">Username</label>
       <input type="text" placeholder="Enter Username" name="uname" required>
 
@@ -423,6 +401,10 @@ body, html {
       <input type="password" placeholder="Enter Password" name="psw" required>
 
       <button type="submit" class="w3-dark-grey">Login</button>
+
+      <div class="g-signin2 googlelogin" data-onsuccess="onSignIn"></div>
+      <a class="w3-center" href="#" onclick="signOut();">Sign out</a>
+
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
@@ -436,6 +418,28 @@ body, html {
 </div>
 
 <script>
+  function onSignIn(googleUser) {
+      var csrftoken = Cookies.get('csrftoken');
+      var id_token = googleUser.getAuthResponse().id_token;
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'http://localhost:8000/account/goauth2token');
+      xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onload = function () {
+        console.log('Signed in as: ' + xhr.responseText);
+      };
+      xhr.send('idtoken=' + id_token);
+    }
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+
+<script>
+
 
 // Modal Image Gallery
 function onClick(element) {
