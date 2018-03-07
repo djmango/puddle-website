@@ -90,6 +90,11 @@ span.psw {
     cursor: pointer;
 }
 
+/*google login buttons*/
+.googlelogin {
+  background-position: center;
+}
+
 /* Add Zoom Animation */
 .animate {
     -webkit-animation: animatezoom 0.6s;
