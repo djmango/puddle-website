@@ -25,6 +25,7 @@ SECRET_KEY = keys['djangokey']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+CSRF_COOKIE_SECURE = False
 
 ALLOWED_HOSTS = []
 
