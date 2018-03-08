@@ -416,7 +416,7 @@ body, html {
     </div>
   </form>
 </div>
-
+{% csrf_token %}
 <script>
   function onSignIn(googleUser) {
       var csrftoken = Cookies.get('csrftoken');

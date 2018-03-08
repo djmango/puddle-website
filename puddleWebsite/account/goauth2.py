@@ -35,21 +35,19 @@ def verify(request):
         request.session['userInfo'] = userInfo
 
         # check if the user already exists in db
-        mysqlcon.execute("""SELECT * FROM account_users WHERE EXISTS (SELECT email FROM account_users WHERE email = "%s");""" % userInfo['email'])
-        r = mysqlcon.fetchall()
-        print(r)
-        if r == False: # if this is a new account, add userInfo to the db
+        mysqlcon.execute("""SELECT * FROM account_users WHERE EXISTS (SELECT email FROM account_users WHERE email = '%s');""" % userInfo['email'])
+        r = mysqlcon.fetchone()
+        if r is None:  # if this is a new account, add userInfo to the db
             # generate a unique id
-            userId = random.getrandbits(64)
-            q = mysqlcon.execute("""SELECT * from account_users WHERE EXISTS
-                (SELECT email FROM account_users WHERE userId = "%s");""" % userId)
-            while q == True:
-                userId = random.getrandbits(16)
+            random.seed(mysqlcon.execute("""SELECT * from account_users""")) # seed based on number of users, so no repeats
+            userId = random.randint(9999999999999999999999999999999, 100000000000000000000000000000000)
+            print(userId)
+            
             # upload userInfo to db
             holder = "meh" # temp
             mysqlcon.execute(
                 """INSERT INTO account_users (userId, email, name, picture, settings)
-                VALUES ("%s", "%s", "%s", "%s", "%s");""",
+                VALUES (%s, %s, %s, %s, %s);""",
                 (userId, userInfo['email'], userInfo['name'], userInfo['picture'], holder))
             mysql.commit()
         return HttpResponse(userInfo['email'])
