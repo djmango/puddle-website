@@ -85,7 +85,7 @@ body, html {
       <a href="#roadmap" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i> ROADMAP</a>
       <a href="#whitepaper" class="w3-bar-item w3-button"><i class="fa fa-file-text"></i> WHITEPAPER</a>
       <a href="#buy" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> BUY</a>
-      <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="logintxt"><i class="fas fa-user-circle"></i> SIGN IN</a>
+      <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="log"><i class="fas fa-user-circle"></i> SIGN IN</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -103,7 +103,7 @@ body, html {
   <a href="#roadmap" onclick="w3_close()" class="w3-bar-item w3-button">ROADMAP</a>
   <a href="#whitepaper" onclick="w3_close()" class="w3-bar-item w3-button">WHITEPAPER</a>
   <a href="#buy"  onclick="w3_close()" class="w3-bar-item w3-button">BUY</a>
-  <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="logintxt">SIGN IN</a>
+  <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="mlog"> SIGN IN</a>
 </nav>
 
 <!-- Header with full-height image -->
@@ -410,14 +410,15 @@ body, html {
     <a class="" href="#" onclick="signOut();">Sign out</a>
   </div>
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn w3-dark-grey">Cancel</button>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn w3-dark-grey">Close</button>
     </div>
   </form>
 </div>
 {% csrf_token %}
 <script>
   function onSignIn(googleUser) {
-    document.getElementById("logintxt").innerHTML = "SIGN OUT";
+    document.getElementById("log").innerHTML = " SIGN OUT";
+    document.getElementById("mlog").innerHTML = " SIGN OUT";
 
       var csrftoken = Cookies.get('csrftoken');
       var id_token = googleUser.getAuthResponse().id_token;
@@ -431,7 +432,8 @@ body, html {
       xhr.send('idtoken=' + id_token);
     }
   function signOut() {
-    document.getElementById("logintxt").innerHTML = "SIGN IN";
+    document.getElementById("log").innerHTML = " SIGN IN";
+    document.getElementById("mlog").innerHTML = " SIGN IN";
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
