@@ -40,8 +40,7 @@ def verify(request):
         if r is None:  # if this is a new account, add userInfo to the db
             # generate a unique id
             random.seed(mysqlcon.execute("""SELECT * from account_users""")) # seed based on number of users, so no repeats
-            userId = random.randint(9999999999999999999999999999999, 100000000000000000000000000000000)
-            print(userId)
+            userId = random.randint(9999999999999999999999999999999, 100000000000000000000000000000000) # generate a 32 int long uid
             
             # upload userInfo to db
             holder = "meh" # temp
