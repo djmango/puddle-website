@@ -58,7 +58,17 @@ body, html {
 .w3-bar .w3-button {
     padding: 16px;
 }
+.bean-center {
+  margin-top: 10%;
+  text-align:center;
+}
+.g-signin2{
+  width: 100%;
+}
 
+.g-signin2 > div{
+  margin: 0 auto;
+}
 
 </style>
 <body>
@@ -75,7 +85,7 @@ body, html {
       <a href="#roadmap" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i> ROADMAP</a>
       <a href="#whitepaper" class="w3-bar-item w3-button"><i class="fa fa-file-text"></i> WHITEPAPER</a>
       <a href="#buy" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> BUY</a>
-      <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"><i class="fas fa-user-circle"></i> LOGIN</a>
+      <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="logintxt"><i class="fas fa-user-circle"></i> SIGN IN</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -93,7 +103,7 @@ body, html {
   <a href="#roadmap" onclick="w3_close()" class="w3-bar-item w3-button">ROADMAP</a>
   <a href="#whitepaper" onclick="w3_close()" class="w3-bar-item w3-button">WHITEPAPER</a>
   <a href="#buy"  onclick="w3_close()" class="w3-bar-item w3-button">BUY</a>
-  <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button">LOGIN</a>
+  <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="logintxt">SIGN IN</a>
 </nav>
 
 <!-- Header with full-height image -->
@@ -393,32 +403,22 @@ body, html {
       <img src="static/assets/img/avatar.png" alt="Avatar" class="avatar">
     </div>
 
-    <div class="w3-container">
-      <label class="w3-large" for="uname">Username</label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+    <div class="container">
 
-      <label class="w3-large" for="psw">Password</label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <button type="submit" class="w3-dark-grey">Login</button>
-
-      <div class="g-signin2 googlelogin" data-onsuccess="onSignIn"></div>
-      <a class="w3-center" href="#" onclick="signOut();">Sign out</a>
-
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-
+      <div class="g-signin2" href="#home" data-onsuccess="onSignIn" data-theme="light" data-width="300" data-height="50" data-longtitle="true"></div>
+      <div class="w3-center">
+    <a class="" href="#" onclick="signOut();">Sign out</a>
+  </div>
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn w3-dark-grey">Cancel</button>
-      <span class="psw">Forgot <a href="https://cdn.drawception.com/images/panels/2017/5-8/NHbhaxxmW2-2.png">password?</a></span>
     </div>
   </form>
 </div>
 {% csrf_token %}
 <script>
   function onSignIn(googleUser) {
+    document.getElementById("logintxt").innerHTML = "SIGN OUT";
+
       var csrftoken = Cookies.get('csrftoken');
       var id_token = googleUser.getAuthResponse().id_token;
       var xhr = new XMLHttpRequest();
@@ -431,11 +431,14 @@ body, html {
       xhr.send('idtoken=' + id_token);
     }
   function signOut() {
+    document.getElementById("logintxt").innerHTML = "SIGN IN";
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
   }
+
+
 </script>
 
 <script>
