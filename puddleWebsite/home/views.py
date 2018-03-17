@@ -4,7 +4,7 @@ from django.shortcuts import render
 # views
 
 def index(request):
-    """shows homepage upon request
+    """shows homepage upon request, along with any account information
     
     Arguments:
         request {string} -- managed by django

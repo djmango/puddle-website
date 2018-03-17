@@ -436,11 +436,12 @@ body, html {
       xhr.setRequestHeader("X-CSRFToken", csrftoken);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.onload = function () {
-        console.log('Signed in as: ' + xhr.responseText);
+        // conosle.log('Signed in')
+        var resposeParsed = JSON.parse(xhr.responseText)
+        console.log('Signed in as: ' + resposeParsed.name);
+        console.log('Picture is: ' + resposeParsed.picture);
       };
       xhr.send('idtoken=' + id_token);
-      console.log('Full Name: ' + profile.getName());
-      console.log("Profile Image URL: " + profile.getImageUrl());
     }
   function signOut() {
     document.getElementById("accTabs").innerHTML = "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN IN</a>"

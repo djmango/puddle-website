@@ -49,7 +49,8 @@ def verify(request):
                 VALUES (%s, %s, %s, %s, %s);""",
                 (userId, userInfo['email'], userInfo['name'], userInfo['picture'], holder))
             mysql.commit()
-        return HttpResponse(userInfo['email'])
+        jsonResponse = json.dumps({"picture": userInfo['picture'], "name": userInfo['name']})
+        return HttpResponse(jsonResponse)
 
     except ValueError:
         # Invalid token

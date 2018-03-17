@@ -20,7 +20,7 @@ contract ERC20 {
 }
 
 
-contract Sale { // 0x9d5F8b07EB3F93da8123B6dF49DB79aFbD68cFB3
+contract Sale { // 0xA13Ffd85bDA6aeef2b067203B47C700DC1c04Da7
 
     uint256 public maxMintable;
     uint256 public totalMinted;
