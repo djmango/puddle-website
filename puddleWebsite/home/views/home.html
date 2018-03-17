@@ -58,10 +58,21 @@ body, html {
 .w3-bar .w3-button {
     padding: 16px;
 }
+.bean-center {
+  margin-top: 10%;
+  text-align:center;
+}
+.g-signin2{
+  width: 100%;
+}
 
+.g-signin2 > div{
+  margin: 0 auto;
+}
 
 </style>
 <body>
+
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
@@ -75,7 +86,9 @@ body, html {
       <a href="#roadmap" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i> ROADMAP</a>
       <a href="#whitepaper" class="w3-bar-item w3-button"><i class="fa fa-file-text"></i> WHITEPAPER</a>
       <a href="#buy" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> BUY</a>
-      <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"><i class="fas fa-user-circle"></i> LOGIN</a>
+      <accountTabs id=accTabs>
+        <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="log"><i class="fas fa-users"></i> SIGN IN</a>
+      </accountTabs>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -93,7 +106,8 @@ body, html {
   <a href="#roadmap" onclick="w3_close()" class="w3-bar-item w3-button">ROADMAP</a>
   <a href="#whitepaper" onclick="w3_close()" class="w3-bar-item w3-button">WHITEPAPER</a>
   <a href="#buy"  onclick="w3_close()" class="w3-bar-item w3-button">BUY</a>
-  <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button">LOGIN</a>
+  <a href="#"  onclick="w3_close()" class="w3-bar-item w3-button">PROFILE</a>
+  <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="mlog"> SIGN IN</a>
 </nav>
 
 <!-- Header with full-height image -->
@@ -387,38 +401,34 @@ body, html {
 <div id="id01" class="modal">
 
   <form class="modal-content w3-animate-zoom" action="/action_page.php">
-
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="static/assets/img/avatar.png" alt="Avatar" class="avatar">
-    </div>
-
-    <div class="w3-container">
-      <label class="w3-large" for="uname">Username</label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label class="w3-large" for="psw">Password</label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <button type="submit" class="w3-dark-grey">Login</button>
-
-      <div class="g-signin2 googlelogin" data-onsuccess="onSignIn"></div>
-      <a class="w3-center" href="#" onclick="signOut();">Sign out</a>
-
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-
+    <div class="container">
+      <div class="w3-center">
+       <h2>SIGN IN</h2>
+       <p class="w3-large">Signing in with google will allow you to purchase Puddles.<br>And lets be honest you want to be as wet as possible.</p>
+      </div>
+      <br>
+      <div class="g-signin2" href="#" data-onsuccess="onSignIn" data-theme="light" data-width="300" data-height="50" data-longtitle="true"></div>
+      <br>
+      <div class="w3-center" id="signOutBtn">
+        <!--sign out option is put here once user signs in-->
+      </div>
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn w3-dark-grey">Cancel</button>
-      <span class="psw">Forgot <a href="https://cdn.drawception.com/images/panels/2017/5-8/NHbhaxxmW2-2.png">password?</a></span>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn w3-dark-grey">Close</button>
     </div>
   </form>
 </div>
 {% csrf_token %}
 <script>
   function onSignIn(googleUser) {
+    //adds profile button to navbar once signed in and made me want to die for a solid hour
+    document.getElementById("accTabs").innerHTML =
+    "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN OUT</a> <a href=\"http://bit.ly/2FP4qDL\" class=\"w3-bar-item w3-button\"><i class=\"fa fa-user\"></i> PROFILE</a>";
+    //showsGoogleProfilePic
+    //there will be things here eventually
+
+    document.getElementById("signOutBtn").innerHTML = "<a class='' href='#' onclick='signOut();'><p>Sign out</p></a>";
+    document.getElementById("mlog").innerHTML = " SIGN OUT";
+
       var csrftoken = Cookies.get('csrftoken');
       var id_token = googleUser.getAuthResponse().id_token;
       var xhr = new XMLHttpRequest();
@@ -429,13 +439,20 @@ body, html {
         console.log('Signed in as: ' + xhr.responseText);
       };
       xhr.send('idtoken=' + id_token);
+      console.log('Full Name: ' + profile.getName());
+      console.log("Profile Image URL: " + profile.getImageUrl());
     }
   function signOut() {
+    document.getElementById("accTabs").innerHTML = "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN IN</a>"
+    document.getElementById("signOutBtn").innerHTML = ""
+    document.getElementById("mlog").innerHTML = " SIGN IN";
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
   }
+
+
 </script>
 
 <script>
