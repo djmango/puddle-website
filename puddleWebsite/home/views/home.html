@@ -420,15 +420,6 @@ body, html {
 {% csrf_token %}
 <script>
   function onSignIn(googleUser) {
-    //adds profile button to navbar once signed in and made me want to die for a solid hour
-    document.getElementById("accTabs").innerHTML =
-    "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN OUT</a> <a href=\"http://bit.ly/2FP4qDL\" class=\"w3-bar-item w3-button\"><i class=\"fa fa-user\"></i> PROFILE</a>";
-    //showsGoogleProfilePic
-    //there will be things here eventually
-
-    document.getElementById("signOutBtn").innerHTML = "<a class='' href='#' onclick='signOut();'><p>Sign out</p></a>";
-    document.getElementById("mlog").innerHTML = " SIGN OUT";
-
       var csrftoken = Cookies.get('csrftoken');
       var id_token = googleUser.getAuthResponse().id_token;
       var xhr = new XMLHttpRequest();
@@ -442,6 +433,16 @@ body, html {
         console.log('Picture is: ' + resposeParsed.picture);
       };
       xhr.send('idtoken=' + id_token);
+
+      //adds profile button to navbar once signed in and made me want to die for a solid hour
+      document.getElementById("accTabs").innerHTML =
+      "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN OUT</a> <a href=\"http://bit.ly/2FP4qDL\" class=\"w3-bar-item w3-button\"><i class=\"fa fa-user\"></i> PROFILE</a>";
+      //showsGoogleProfilePic
+      //there will be things here eventually
+
+      document.getElementById("signOutBtn").innerHTML = "<a class='' href='#' onclick='signOut();'><p>Sign out</p></a>";
+      document.getElementById("mlog").innerHTML = " SIGN OUT";
+      document.getElementById("pfp").innerHTML = resposeParsed.name;
     }
   function signOut() {
     document.getElementById("accTabs").innerHTML = "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN IN</a>"
