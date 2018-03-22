@@ -4,17 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-signin-client_id" content="195931897064-d28cipa997m9jbes3dimn0j05p4rehip.apps.googleusercontent.com">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link rel="stylesheet" href="static/assets/css/wave.css">
 <link rel="stylesheet" href="static/assets/css/login.css">
+<link rel="stylesheet" href="static/assets/css/w3.css">
 <link rel="icon" href="static/assets/img/puddle.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script src="static/assets/js/js.cookie.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 <script>
 $(document).ready(function(){
   // Add smooth scrolling to all links
@@ -59,8 +60,11 @@ body, html {
     padding: 16px;
 }
 .bean-center {
-  margin-top: 10%;
-  text-align:center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  overflow: auto;
 }
 .g-signin2{
   width: 100%;
@@ -194,15 +198,16 @@ body, html {
 </div>
 
 <!-- Team Section -->
-<div class="w3-container" style="padding:128px 16px" id="team">
+<div class="w3-container" style="padding:128px;" id="team">
   <h3 class="w3-center">THE TEAM</h3>
   <p class="w3-center w3-large">The ones who runs this company</p>
-  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+  <div class="w3-row-padding w3-grayscale" style="margin-top:64px;">
+    <boxes class="">
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card">
         <img src="/w3images/team2.jpg" alt="John_img" style="width:100%">
         <div class="w3-container">
-          <h3>John Doe</h3>
+          <h3>Filip Giertz</h3>
           <p class="w3-opacity">CEO & Founder</p>
           <p>hi. im john.</p>
           <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Buy</button></p>
@@ -213,35 +218,14 @@ body, html {
       <div class="w3-card">
         <img src="/w3images/team1.jpg" alt="John2_img" style="width:100%">
         <div class="w3-container">
-          <h3>John Smith</h3>
+          <h3>Viktor Osman</h3>
           <p class="w3-opacity">Art Director</p>
           <p>im also john.</p>
           <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Buy</button></p>
         </div>
       </div>
     </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/w3images/team3.jpg" alt="john3_img" style="width:100%">
-        <div class="w3-container">
-          <h3>John Scott</h3>
-          <p class="w3-opacity">Designer</p>
-          <p>yup same here. <b></b></p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Buy</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/w3images/team4.jpg" alt="john4_img" style="width:100%">
-        <div class="w3-container">
-          <h3>John Johnson</h3>
-          <p class="w3-opacity">Website Developer</p>
-          <p>im not really john my name is nick and they wont let me leave help somebody help.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Buy</button></p>
-        </div>
-      </div>
-    </div>
+  </boxes>
   </div>
 </div>
 
@@ -428,25 +412,26 @@ body, html {
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.onload = function () {
         // conosle.log('Signed in')
-        var resposeParsed = JSON.parse(xhr.responseText)
-        console.log('Signed in as: ' + resposeParsed.name);
-        console.log('Picture is: ' + resposeParsed.picture);
+        var responseParsed = JSON.parse(xhr.responseText)
+        console.log('Signed in as: ' + responseParsed.name);
+        console.log('Picture is: ' + responseParsed.picture);
       };
       xhr.send('idtoken=' + id_token);
 
       //adds profile button to navbar once signed in and made me want to die for a solid hour
       document.getElementById("accTabs").innerHTML =
-      "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN OUT</a> <a href=\"http://bit.ly/2FP4qDL\" class=\"w3-bar-item w3-button\"><i class=\"fa fa-user\"></i> PROFILE</a>";
-      //showsGoogleProfilePic
-      //there will be things here eventually
+      "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN OUT</a> <a href=\"http://bit.ly/2FP4qDL\" class=\"w3-bar-item w3-button\"> <img id=\"pfp\"> PROFILE</a>";
 
       document.getElementById("signOutBtn").innerHTML = "<a class='' href='#' onclick='signOut();'><p>Sign out</p></a>";
       document.getElementById("mlog").innerHTML = " SIGN OUT";
-      document.getElementById("pfp").innerHTML = resposeParsed.name;
+      //showsGoogleProfilePic
+      document.getElementById("pfp").src = "responseParsed.picture";
+      //i wanna die
+      //there will be things here eventually
     }
   function signOut() {
-    document.getElementById("accTabs").innerHTML = "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN IN</a>"
-    document.getElementById("signOutBtn").innerHTML = ""
+    document.getElementById("accTabs").innerHTML = "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN IN</a>";
+    document.getElementById("signOutBtn").innerHTML = "";
     document.getElementById("mlog").innerHTML = " SIGN IN";
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
