@@ -85,13 +85,14 @@ body, html {
 
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
+
       <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
       <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-users"></i> TEAM</a>
       <a href="#roadmap" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i> ROADMAP</a>
       <a href="#whitepaper" class="w3-bar-item w3-button"><i class="fa fa-file-text"></i> WHITEPAPER</a>
       <a href="#buy" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> BUY</a>
-      <accountTabs id=accTabs>
-        <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="log"><i class="fas fa-users"></i> SIGN IN</a>
+      <accountTabs id="accTabs">
+        <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"><i class="fas fa-users"></i> SIGN IN</a>
       </accountTabs>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
@@ -103,15 +104,16 @@ body, html {
 </div>
 
 <!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+<nav class="w3-sidebar w3-bar-block w3-light-gray w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
   <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
   <a href="#roadmap" onclick="w3_close()" class="w3-bar-item w3-button">ROADMAP</a>
   <a href="#whitepaper" onclick="w3_close()" class="w3-bar-item w3-button">WHITEPAPER</a>
   <a href="#buy"  onclick="w3_close()" class="w3-bar-item w3-button">BUY</a>
-  <a href="#"  onclick="w3_close()" class="w3-bar-item w3-button">PROFILE</a>
-  <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="mlog"> SIGN IN</a>
+  <accountTabsM id="accTabsM">
+  <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"> SIGN IN</a>
+</accountTabsM>
 </nav>
 
 <!-- Header with full-height image -->
@@ -137,6 +139,7 @@ body, html {
 
 <!-- About Section -->
 <div class="w3-container" style="padding:128px 16px" id="about">
+
   <h3 class="w3-center sr-animate">ABOUT THE COMPANY</h3>
   <p class="w3-center w3-large sr-animate">Key features of our company</p>
   <div class="w3-row-padding w3-center sr-animate" style="margin-top:64px">
@@ -413,26 +416,34 @@ body, html {
       xhr.onload = function () {
         // conosle.log('Signed in')
         var responseParsed = JSON.parse(xhr.responseText)
+        //logs user's name and profile pic
         console.log('Signed in as: ' + responseParsed.name);
         console.log('Picture is: ' + responseParsed.picture);
+
+        //addds profile tab, profile pic, and sign out buttons
+        document.getElementById("accTabs").innerHTML =
+        "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\"><i class=\"fas fa-users\"></i> SIGN OUT</a> <a href=\"http://bit.ly/2FP4qDL\" class=\"w3-bar-item w3-button\"> <img id=\"pfp\" src=\" \"  width=\"24\" style=\"border-radius: 50%\">  PROFILE</a>";
+        document.getElementById("accTabsM").innerHTML =
+        "<a onclick=\"w3_close; document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\"> SIGN OUT</a> <a href=\"http://bit.ly/2FP4qDL\" class=\"w3-bar-item w3-button\"> PROFILE</a>"
+        //shows profile pic.... hope you like it you dumb nerd... took me wayyy too long to figure this out... so appriciate it please..
+        document.getElementById("pfp").src = responseParsed.picture;
+        //i wanna die
+        //there will be things here eventually
       };
       xhr.send('idtoken=' + id_token);
 
       //adds profile button to navbar once signed in and made me want to die for a solid hour
-      document.getElementById("accTabs").innerHTML =
-      "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN OUT</a> <a href=\"http://bit.ly/2FP4qDL\" class=\"w3-bar-item w3-button\"> <img id=\"pfp\"> PROFILE</a>";
 
       document.getElementById("signOutBtn").innerHTML = "<a class='' href='#' onclick='signOut();'><p>Sign out</p></a>";
-      document.getElementById("mlog").innerHTML = " SIGN OUT";
-      //showsGoogleProfilePic
-      document.getElementById("pfp").src = "responseParsed.picture";
-      //i wanna die
-      //there will be things here eventually
     }
+
+
+
   function signOut() {
-    document.getElementById("accTabs").innerHTML = "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\" id=\"log\"><i class=\"fas fa-users\"></i> SIGN IN</a>";
+    document.getElementById("accTabs").innerHTML = "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\"><i class=\"fas fa-users\"></i> SIGN IN</a>";
     document.getElementById("signOutBtn").innerHTML = "";
-    document.getElementById("mlog").innerHTML = " SIGN IN";
+    document.getElementById("accTabsM").innerHTML =
+    "<a onclick=\"w3_close; document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\"> SIGN IN</a>"
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
