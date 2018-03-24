@@ -17,4 +17,11 @@ mysqlcon = mysql.cursor()
 
 
 def index(request):
-    return HttpResponse(hash("testpass%"))
+    """shows profile index upon request
+
+    Arguments:
+        request {string} -- managed by django
+    """
+
+    return render(request, 'profile_index.html', content_type='text/html')
+
