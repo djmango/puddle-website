@@ -423,9 +423,9 @@ body, html {
 
         //addds profile tab, profile pic, and sign out buttons
         document.getElementById("accTabs").innerHTML =
-        "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\"><i class=\"fas fa-users\"></i> SIGN OUT</a> <a href=\"account/\" class=\"w3-bar-item w3-button\"> <img id=\"pfp\" src=\" \"  width=\"24\" style=\"border-radius: 50%\">  PROFILE</a>";
+        "<a class=\"w3-bar-item w3-button\" onclick=\"signOut();\" href=\"/\"><i class=\"fas fa-users\"></i> SIGN OUT</a> ";
         document.getElementById("accTabsM").innerHTML =
-        "<a onclick=\"w3_close; document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\"> SIGN OUT</a> <a href=\"account/\" class=\"w3-bar-item w3-button\"> PROFILE</a>"
+        "<a onclick=\"w3_close; document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\"> SIGN OUT  </a> <a href=\"account/\" class=\"w3-bar-item w3-button\">PROFILE</a>"
         //shows profile pic.... hope you like it you dumb nerd... took me wayyy too long to figure this out... so appriciate it please..
         document.getElementById("pfp").src = responseParsed.picture;
         //i wanna die
