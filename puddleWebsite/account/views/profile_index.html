@@ -88,13 +88,14 @@ body, html {
     <div class="w3-right w3-hide-small">
 
       <a href="/" class="w3-bar-item w3-button"><i class="fas fa-home"></i> HOME</a>
-      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-chart-line"></i> ANALYTICS</a>
-      <a href="#roadmap" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i> ROADMAP</a>
+      <a href="#analytics" class="w3-bar-item w3-button"><i class="fa fa-chart-line"></i> ANALYTICS</a>
       <a href="#whitepaper" class="w3-bar-item w3-button"><i class="fa fa-file-text"></i> WHITEPAPER</a>
-      <a href="#buy" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> BUY</a>
+      <a href="#campaign" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i>PUDDLE CAMPAIGN</a>
+      <a href="#profile" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PUDDLE PROFILE</a>
       <accountTabs id="accTabs">
         <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"><i class="fas fa-users"></i> SIGN IN</a>
       </accountTabs>
+      <a href="/" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> EXIT</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -107,11 +108,12 @@ body, html {
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-light-gray w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="/" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
-  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
-  <a href="#roadmap" onclick="w3_close()" class="w3-bar-item w3-button">ROADMAP</a>
+  <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+  <a href="#analytics" onclick="w3_close()" class="w3-bar-item w3-button">ANALYTICS</a>
   <a href="#whitepaper" onclick="w3_close()" class="w3-bar-item w3-button">WHITEPAPER</a>
-  <a href="#buy"  onclick="w3_close()" class="w3-bar-item w3-button">BUY</a>
+  <a href="#campaign" onclick="w3_close()" class="w3-bar-item w3-button">PUDDLE CAMPAIGN</a>
+  <a href="#profile"  onclick="w3_close()" class="w3-bar-item w3-button">PUDDLE PROFILE</a>
+  <a href="/" onclick="w3_close()" class="w3w3-bar-item w3-button">EXIT</a>
   <accountTabsM id="accTabsM">
   <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"> SIGN IN</a>
 </accountTabsM>
@@ -202,8 +204,8 @@ body, html {
 </div>
 
 <!-- Team Section -->
-<div class="w3-container" style="padding:128px;" id="team">
-  <h3 class="w3-center">THE TEAM</h3>
+<div class="w3-container" style="padding:128px;" id="analytics">
+  <h3 class="w3-center">ANALYTICS</h3>
   <p class="w3-center w3-large">The ones who runs this company</p>
   <div class="w3-row-padding w3-grayscale" style="margin-top:64px;">
     <boxes class="">
@@ -290,9 +292,33 @@ body, html {
   </div>
 </div>
 
-<!-- Roadmap Section -->
-<div class="w3-container w3-white-grey" style="padding:128px 16px" id="roadmap">
-  <h3 class="w3-center">ROADMAP</h3>
+<!-- whitepaper Section -->
+<div class="w3-container w3-center w3-light-grey" style="padding:128px 16px" id="whitepaper">
+  <h3>WHITEPAPER</h3>
+  <p class="w3-large">View Our whitepaper.</p>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow w3-center">
+        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
+        <li class="w3-padding-16"><b>25GB</b> Storage</li>
+        <li class="w3-padding-16"><b>25</b> Emails</li>
+        <li class="w3-padding-16"><b>25</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 25</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Campaign Section -->
+<div class="w3-container w3-white-grey" style="padding:128px 16px" id="campaign">
+  <h3 class="w3-center">CAMPAIGN</h3>
   <p class="w3-center w3-large">What we've done for people</p>
 
   <div class="w3-row-padding" style="margin-top:64px">
@@ -326,34 +352,10 @@ body, html {
   </div>
 </div>
 
-<!-- whitepaper Section -->
-<div class="w3-container w3-center w3-light-grey" style="padding:128px 16px" id="whitepaper">
-  <h3>WHITEPAPER</h3>
-  <p class="w3-large">View Our whitepaper.</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-third">
-      <ul class="w3-ul w3-white w3-hover-shadow w3-center">
-        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
-        <li class="w3-padding-16"><b>25GB</b> Storage</li>
-        <li class="w3-padding-16"><b>25</b> Emails</li>
-        <li class="w3-padding-16"><b>25</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 25</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
 
-
-<!-- Buy Section -->
-<div class="w3-container w3-dark-grey" style="padding:128px 16px" id="buy">
-  <h3 class="w3-center">BUY</h3>
+<!-- Profile Section -->
+<div class="w3-container w3-dark-grey" style="padding:128px 16px" id="profile">
+  <h3 class="w3-center">PROFILE</h3>
   <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-third">
@@ -425,7 +427,7 @@ body, html {
         document.getElementById("accTabs").innerHTML =
         "<a class=\"w3-bar-item w3-button\" onclick=\"signOut();\" href=\"/\"><i class=\"fas fa-users\"></i> SIGN OUT</a> ";
         document.getElementById("accTabsM").innerHTML =
-        "<a onclick=\"w3_close; document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\"> SIGN OUT  </a> <a href=\"account/\" class=\"w3-bar-item w3-button\">PROFILE</a>"
+        "<a   onclick=\"signOut();\" class=\"w3-bar-item w3-button\" href=\"/\"> SIGN OUT</a>"
         //shows profile pic.... hope you like it you dumb nerd... took me wayyy too long to figure this out... so appriciate it please..
         document.getElementById("pfp").src = responseParsed.picture;
         //i wanna die
