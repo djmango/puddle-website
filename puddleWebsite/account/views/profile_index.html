@@ -90,12 +90,12 @@ body, html {
       <a href="/" class="w3-bar-item w3-button"><i class="fas fa-home"></i> HOME</a>
       <a href="#analytics" class="w3-bar-item w3-button"><i class="fa fa-chart-line"></i> ANALYTICS</a>
       <a href="#whitepaper" class="w3-bar-item w3-button"><i class="fa fa-file-text"></i> WHITEPAPER</a>
-      <a href="#campaign" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i>PUDDLE CAMPAIGN</a>
-      <a href="#profile" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PUDDLE PROFILE</a>
+      <a href="#campaign" class="w3-bar-item w3-button"><i class="fas fa-bullhorn"></i>PUDDLE CAMPAIGN</a>
+      <a href="#profile" class="w3-bar-item w3-button"><i class="fa fa-user-circle"></i> PUDDLE PROFILE</a>
       <accountTabs id="accTabs">
         <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"><i class="fas fa-users"></i> SIGN IN</a>
       </accountTabs>
-      <a href="/" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> EXIT</a>
+      <a href="/" class="w3-bar-item w3-button"><i class="fa fa-sign-out-alt"></i> EXIT</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -113,10 +113,10 @@ body, html {
   <a href="#whitepaper" onclick="w3_close()" class="w3-bar-item w3-button">WHITEPAPER</a>
   <a href="#campaign" onclick="w3_close()" class="w3-bar-item w3-button">PUDDLE CAMPAIGN</a>
   <a href="#profile"  onclick="w3_close()" class="w3-bar-item w3-button">PUDDLE PROFILE</a>
-  <a href="/" onclick="w3_close()" class="w3w3-bar-item w3-button">EXIT</a>
   <accountTabsM id="accTabsM">
   <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"> SIGN IN</a>
-</accountTabsM>
+  </accountTabsM>
+  <a href="/" onclick="w3_close()" class="w3w3-bar-item w3-button">EXIT</a>
 </nav>
 
 <!-- Header with full-height image -->
@@ -425,9 +425,9 @@ body, html {
 
         //addds profile tab, profile pic, and sign out buttons
         document.getElementById("accTabs").innerHTML =
-        "<a class=\"w3-bar-item w3-button\" onclick=\"signOut();\" href=\"/\"><i class=\"fas fa-users\"></i> SIGN OUT</a> ";
+        "<a class=\"w3-bar-item w3-button\" onclick=\"signOut();\" href=\"/\"><i class=\"fas fa-users\"></i> SIGN OUT</a>";
         document.getElementById("accTabsM").innerHTML =
-        "<a   onclick=\"signOut();\" class=\"w3-bar-item w3-button\" href=\"/\"> SIGN OUT</a>"
+        "<a onclick=\"signOut();\" class=\"w3-bar-item w3-button\" href=\"/\"> SIGN OUT</a>"
         //shows profile pic.... hope you like it you dumb nerd... took me wayyy too long to figure this out... so appriciate it please..
         document.getElementById("pfp").src = responseParsed.picture;
         //i wanna die
