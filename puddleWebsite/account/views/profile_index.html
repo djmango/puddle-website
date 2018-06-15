@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 {% load static %}
-<title>Puddle</title>
+<title>Puddle | Profile</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-signin-client_id" content="195931897064-d28cipa997m9jbes3dimn0j05p4rehip.apps.googleusercontent.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-<link rel="stylesheet" href="static/assets/css/wave.css">
-<link rel="stylesheet" href="static/assets/css/login.css">
-<link rel="stylesheet" href="static/assets/css/w3.css">
-<link rel="icon" href="static/assets/img/puddle.ico">
+<link rel="stylesheet" href="/static/assets/css/wave.css">
+<link rel="stylesheet" href="/static/assets/css/login.css">
+<link rel="stylesheet" href="/static/assets/css/w3.css">
+<link rel="icon" href="/static/assets/img/puddle.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-<script src="static/assets/js/js.cookie.js"></script>
+<script src="/static/assets/js/js.cookie.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <script>
@@ -54,7 +54,7 @@ body, html {
 .bgimg-1 {
     background-position: center;
     background-size: cover;
-    background-image: url('static/assets/img/bg.png');
+    background-image: url('/static/assets/img/bg.png');
     min-height: 100%;
 }
 .w3-bar .w3-button {
@@ -81,20 +81,21 @@ body, html {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">
-    <img src="static/assets/img/Puddle(NBG).png" width="79" alt="Logo"></a>
+    <a href="/" class="w3-bar-item w3-button w3-wide">
+    <img src="/static/assets/img/Puddle(NBG).png" width="79" alt="Logo"></a>
 
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
 
-      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-users"></i> TEAM</a>
-      <a href="#roadmap" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i> ROADMAP</a>
+      <a href="#home" class="w3-bar-item w3-button"><i class="fas fa-home"></i> HOME</a>
+      <a href="#analytics" class="w3-bar-item w3-button"><i class="fa fa-chart-line"></i> ANALYTICS</a>
       <a href="#whitepaper" class="w3-bar-item w3-button"><i class="fa fa-file-text"></i> WHITEPAPER</a>
-      <a href="#buy" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> BUY</a>
+      <a href="#campaign" class="w3-bar-item w3-button"><i class="fas fa-bullhorn"></i>PUDDLE CAMPAIGN</a>
+      <a href="#profile" class="w3-bar-item w3-button"><i class="fa fa-user-circle"></i> PUDDLE PROFILE</a>
       <accountTabs id="accTabs">
         <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"><i class="fas fa-users"></i> SIGN IN</a>
       </accountTabs>
+      <a href="/" class="w3-bar-item w3-button"><i class="fa fa-sign-out-alt"></i> EXIT</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -107,14 +108,15 @@ body, html {
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-light-gray w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
-  <a href="#roadmap" onclick="w3_close()" class="w3-bar-item w3-button">ROADMAP</a>
+  <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+  <a href="#analytics" onclick="w3_close()" class="w3-bar-item w3-button">ANALYTICS</a>
   <a href="#whitepaper" onclick="w3_close()" class="w3-bar-item w3-button">WHITEPAPER</a>
-  <a href="#buy"  onclick="w3_close()" class="w3-bar-item w3-button">BUY</a>
+  <a href="#campaign" onclick="w3_close()" class="w3-bar-item w3-button">PUDDLE CAMPAIGN</a>
+  <a href="#profile"  onclick="w3_close()" class="w3-bar-item w3-button">PUDDLE PROFILE</a>
   <accountTabsM id="accTabsM">
   <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button"> SIGN IN</a>
-</accountTabsM>
+  </accountTabsM>
+  <a href="/" onclick="w3_close()" class="w3w3-bar-item w3-button">EXIT</a>
 </nav>
 
 <!-- Header with full-height image -->
@@ -137,99 +139,35 @@ body, html {
     <a href="https://github.com/"><i class="fab fa-github w3-hover-opacity w3-text-white"></i></a>
   </div>
 </header>
-
-<!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
-
-  <h3 class="w3-center sr-animate">ABOUT THE COMPANY</h3>
-  <p class="w3-center w3-large sr-animate">Key features of our company</p>
-  <div class="w3-row-padding w3-center sr-animate" style="margin-top:64px">
-    <div class="w3-quarter">
-      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">Responsive</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Passion</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-gem w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Design</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Support</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">Responsive2</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Passion2</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-gem w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Design2</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Support2</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-  </div>
-</div>
-
-<!-- Promo Section - "We know design" -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px">
-  <div class="w3-row-padding">
-    <div class="w3-col m6 sr-animate">
-      <h3>We know design.</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
-      <p><a href="#roadmap" class="w3-button w3-black"><i class="fa fa-tasks"> </i> View Our Roadmap</a></p>
-    </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large sr-animate" src="static/assets/img/money.png" alt="Buildings" width="700" height="394">
-    </div>
-  </div>
-</div>
-
-<!-- Team Section -->
-<div class="w3-container" style="padding:128px;" id="team">
-  <h3 class="w3-center">THE TEAM</h3>
+<!-- Analytics Section -->
+<div class="w3-container" style="padding:128px;" id="analytics">
+  <h3 class="w3-center">ANALYTICS</h3>
   <p class="w3-center w3-large">The ones who runs this company</p>
   <div class="w3-row-padding w3-grayscale" style="margin-top:64px;">
     <boxes class="">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/w3images/team2.jpg" alt="John_img" style="width:100%">
-        <div class="w3-container">
-          <h3>Filip Giertz</h3>
-          <p class="w3-opacity">CEO & Founder</p>
-          <p>hi. im john.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Buy</button></p>
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="/w3images/team2.jpg" alt="John_img" style="width:100%">
+          <div class="w3-container">
+            <h3>Filip Giertz</h3>
+            <p class="w3-opacity">CEO & Founder</p>
+            <p>hi. im john.</p>
+            <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Buy</button></p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/w3images/team1.jpg" alt="John2_img" style="width:100%">
-        <div class="w3-container">
-          <h3>Viktor Osman</h3>
-          <p class="w3-opacity">Art Director</p>
-          <p>im also john.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Buy</button></p>
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="/w3images/team1.jpg" alt="John2_img" style="width:100%">
+          <div class="w3-container">
+            <h3>Viktor Osman</h3>
+            <p class="w3-opacity">Art Director</p>
+            <p>im also john.</p>
+            <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Buy</button></p>
+          </div>
         </div>
       </div>
-    </div>
-  </boxes>
+    </boxes>
   </div>
 </div>
 
@@ -252,7 +190,6 @@ body, html {
     <br>Meetings
   </div>
 </div>
-
 
 <!-- Modal for full size images on click-->
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
@@ -290,9 +227,33 @@ body, html {
   </div>
 </div>
 
-<!-- Roadmap Section -->
-<div class="w3-container w3-white-grey" style="padding:128px 16px" id="roadmap">
-  <h3 class="w3-center">ROADMAP</h3>
+<!-- whitepaper Section -->
+<div class="w3-container w3-center w3-light-grey" style="padding:128px 16px" id="whitepaper">
+  <h3>WHITEPAPER</h3>
+  <p class="w3-large">View Our whitepaper.</p>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow w3-center">
+        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
+        <li class="w3-padding-16"><b>25GB</b> Storage</li>
+        <li class="w3-padding-16"><b>25</b> Emails</li>
+        <li class="w3-padding-16"><b>25</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">$ 25</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Campaign Section -->
+<div class="w3-container w3-white-grey" style="padding:128px 16px" id="campaign">
+  <h3 class="w3-center">CAMPAIGN</h3>
   <p class="w3-center w3-large">What we've done for people</p>
 
   <div class="w3-row-padding" style="margin-top:64px">
@@ -326,34 +287,10 @@ body, html {
   </div>
 </div>
 
-<!-- whitepaper Section -->
-<div class="w3-container w3-center w3-light-grey" style="padding:128px 16px" id="whitepaper">
-  <h3>WHITEPAPER</h3>
-  <p class="w3-large">View Our whitepaper.</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-third">
-      <ul class="w3-ul w3-white w3-hover-shadow w3-center">
-        <li class="w3-red w3-xlarge w3-padding-48">Pro</li>
-        <li class="w3-padding-16"><b>25GB</b> Storage</li>
-        <li class="w3-padding-16"><b>25</b> Emails</li>
-        <li class="w3-padding-16"><b>25</b> Domains</li>
-        <li class="w3-padding-16"><b>Endless</b> Support</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">$ 25</h2>
-          <span class="w3-opacity">per month</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-black w3-padding-large">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
 
-
-<!-- Buy Section -->
-<div class="w3-container w3-dark-grey" style="padding:128px 16px" id="buy">
-  <h3 class="w3-center">BUY</h3>
+<!-- Profile Section -->
+<div class="w3-container w3-dark-grey" style="padding:128px 16px" id="profile">
+  <h3 class="w3-center">PROFILE</h3>
   <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-third">
@@ -423,9 +360,9 @@ body, html {
 
         //addds profile tab, profile pic, and sign out buttons
         document.getElementById("accTabs").innerHTML =
-        "<a onclick=\"document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\"><i class=\"fas fa-users\"></i> SIGN OUT</a> <a href=\"account/\" class=\"w3-bar-item w3-button\"> <img id=\"pfp\" src=\" \"  width=\"24\" style=\"border-radius: 50%\">  PROFILE</a>";
+        "<a class=\"w3-bar-item w3-button\" onclick=\"signOut();\" href=\"/\"><i class=\"fas fa-users\"></i> SIGN OUT</a>";
         document.getElementById("accTabsM").innerHTML =
-        "<a onclick=\"w3_close; document.getElementById('id01').style.display='block'\" class=\"w3-bar-item w3-button\"> SIGN OUT</a> <a href=\"account/\" class=\"w3-bar-item w3-button\"> PROFILE</a>"
+        "<a onclick=\"signOut();\" class=\"w3-bar-item w3-button\" href=\"/\"> SIGN OUT</a>";
         //shows profile pic.... hope you like it you dumb nerd... took me wayyy too long to figure this out... so appriciate it please..
         document.getElementById("pfp").src = responseParsed.picture;
         //i wanna die
