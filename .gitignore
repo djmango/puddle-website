@@ -71,3 +71,4 @@ venv.bak/
 
 keys.json
 *.sqlite3
+.vscode
