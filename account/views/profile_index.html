@@ -1,3 +1,4 @@
+<<<<<<< HEAD:puddleWebsite/account/views/profile_index.html
 <!DOCTYPE html>
 <html>
 {% load static %}
@@ -435,3 +436,120 @@ sr.reveal('.sr-animate');
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+{% load static %}
+<title>Puddle</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-signin-client_id" content="195931897064-d28cipa997m9jbes3dimn0j05p4rehip.apps.googleusercontent.com">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="stylesheet" href="{% static 'account/assets/css/wave.css' %}">
+<link rel="stylesheet" href="{% static 'account/assets/css/login.css' %}">
+<link rel="icon" href="static/assets/img/puddle.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script src="{% static 'account/assets/js/js.cookie.js' %}"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url('static/assets/img/bg.png');
+    min-height: 100%;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+.bean-center {
+  margin-top: 10%;
+  text-align:center;
+}
+.g-signin2{
+  width: 100%;
+}
+
+.g-signin2 > div{
+  margin: 0 auto;
+}
+
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide">
+    <img src="static/assets/img/Puddle(NBG).png" width="79" alt="Logo"></a>
+
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="home/#about" class="w3-bar-item w3-button">ABOUT</a>
+      <a href="home/#team" class="w3-bar-item w3-button"><i class="fa fa-users"></i> TEAM</a>
+      <a href="home/#roadmap" class="w3-bar-item w3-button"><i class="fas fa-tasks"></i> ROADMAP</a>
+      <a href="home/#whitepaper" class="w3-bar-item w3-button"><i class="fa fa-file-text"></i> WHITEPAPER</a>
+      <a href="home/#buy" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> BUY</a>
+      <accountTabs id=accTabs>
+        <a onclick="document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="log"><i class="fas fa-users"></i> SIGN IN</a>
+        <a href="/profile.html" class="w3-bar-item w3-button">meme</a>
+      </accountTabs>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="home/#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="home/#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+  <a href="home/#roadmap" onclick="w3_close()" class="w3-bar-item w3-button">ROADMAP</a>
+  <a href="home/#whitepaper" onclick="w3_close()" class="w3-bar-item w3-button">WHITEPAPER</a>
+  <a href="home/#buy"  onclick="w3_close()" class="w3-bar-item w3-button">BUY</a>
+  <a href="#"  onclick="w3_close()" class="w3-bar-item w3-button">PROFILE</a>
+  <a onclick="w3_close; document.getElementById('id01').style.display='block'" class="w3-bar-item w3-button" id="mlog"> SIGN IN</a>
+</nav>
+</body>
+</html>
+>>>>>>> sulaiman:account/views/profile_index.html

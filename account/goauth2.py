@@ -1,20 +1,17 @@
 import json
 import random
 
-import MySQLdb
+import sqlite3
 from django.http import HttpResponse
 from google.auth.transport import requests
 from google.oauth2 import id_token
 
 # pull keys
 CLIENT_ID = json.loads(open('keys.json').read())['googleoauthid']
-SQL_HOST = json.loads(open('keys.json').read())['sqlTestHost']
-SQL_PASSWD = json.loads(open('keys.json').read())['sqlTest1Pass']
 
-# mysql setup
-mysql = MySQLdb.connect(host=SQL_HOST, user='test1',
-                        passwd=SQL_PASSWD, port=3306, db='test1', charset='utf8')
-mysqlcon = mysql.cursor()
+# db setup
+db = sqlite3.connect('db.sqlite')
+dbcon = db.cursor()
 
 
 def verify(request):
@@ -35,20 +32,20 @@ def verify(request):
         request.session['userInfo'] = userInfo
 
         # check if the user already exists in db
-        mysqlcon.execute("""SELECT * FROM account_users WHERE EXISTS (SELECT email FROM account_users WHERE email = '%s');""" % userInfo['email'])
-        r = mysqlcon.fetchone()
+        dbcon.execute("""SELECT * FROM account_users WHERE EXISTS (SELECT email FROM account_users WHERE email = '%s');""" % userInfo['email'])
+        r = dbcon.fetchone()
         if r is None:  # if this is a new account, add userInfo to the db
             # generate a unique id
-            random.seed(mysqlcon.execute("""SELECT * from account_users""")) # seed based on number of users, so no repeats
+            random.seed(dbcon.execute("""SELECT * from account_users""")) # seed based on number of users, so no repeats
             userId = random.randint(9999999999999999999999999999999, 100000000000000000000000000000000) # generate a 32 int long uid
             
             # upload userInfo to db
             holder = "meh" # temp
-            mysqlcon.execute(
+            dbcon.execute(
                 """INSERT INTO account_users (userId, email, name, picture, settings)
                 VALUES (%s, %s, %s, %s, %s);""",
                 (userId, userInfo['email'], userInfo['name'], userInfo['picture'], holder))
-            mysql.commit()
+            db.commit()
         jsonResponse = json.dumps({"picture": userInfo['picture'], "name": userInfo['name']})
         return HttpResponse(jsonResponse)
 

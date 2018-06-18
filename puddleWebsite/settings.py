@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'puddleWebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'test1',
         'USER': 'test1',
         'PASSWORD': keys['sqlTest1Pass'],
